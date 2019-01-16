@@ -1,0 +1,30 @@
+<main>
+  <div class="person_page">
+    <div class="container">
+      <h2>Popular People</h2>
+      <div class="list_person">
+        <div *ngFor="let people of persons_popular?.results" class="person_card" title="{{people.name}}">
+          <a routerLink="/person/{{people.id}}">
+            <div class="person-thumbnail">
+              <img class="image-fluid" src="https://image.tmdb.org/t/p/w235_and_h235_face{{people.profile_path}}"
+                   alt="">
+            </div>
+            <div class="person-info-ls">
+              <h3>{{people.name}}</h3>
+              <p class="known-for">
+              <span *ngFor="let knownFor of people.known_for">
+                {{knownFor.title}}
+              </span>
+              </p>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="paginate-nav">
+        <ngb-pagination [collectionSize]="persons_popular?.total_pages * 10" (pageChange)="pageChanged($event)"
+                        [(page)]="page" [maxSize]="5" [boundaryLinks]="true"></ngb-pagination>
+      </div>
+    </div>
+  </div>
+</main>
+

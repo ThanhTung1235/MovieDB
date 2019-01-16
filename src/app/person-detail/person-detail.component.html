@@ -1,0 +1,103 @@
+<main>
+  <div class="person-detail">
+    <div *ngIf="person" class="person">
+      <div class="container">
+        <div class="person-info-mb">
+          <div class="person-avatar-mb">
+            <img class="image-fluid" src="https://image.tmdb.org/t/p/w600_and_h900_bestv2{{person.profile_path}}" alt="">
+          </div>
+          <div class="person-intro-mb">
+            <h2 class="person-name-mb">{{person.name}}</h2>
+            <div class="person-social-link">
+              <a href="#" class="person-social-mb"><i class="fab fa-facebook-square fa-2x"></i></a>
+              <a href="#" class="person-social-mb"><i class="fab fa-twitter-square fa-2x"></i></a>
+              <a href="#" class="person-social-mb"><i class="fab fa-instagram fa-2x"></i></a>
+            </div>
+          </div>
+          <div class="person-overview-mb">
+            <h3>Biography</h3>
+            <p>
+             {{person.biography}}
+            </p>
+          </div>
+        </div>
+        <div class="person-info">
+          <div class="person">
+            <div class="thumbnail-person">
+              <div class="person-avartar">
+                <img class="image-fluid avartar" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{person.profile_path}}" alt="">
+              </div>
+            </div>
+            <div class="intro-person">
+              <div class="person-intro">
+                <h2 class="person-name">{{person.name}}</h2>
+                <div class="person-social">
+                  <a href="#" class="person-social-mb"><i class="fab fa-facebook-square fa-2x"></i></a>
+                  <a href="#" class="person-social-mb"><i class="fab fa-twitter-square fa-2x"></i></a>
+                  <a href="#" class="person-social-mb"><i class="fab fa-instagram fa-2x"></i></a>
+                </div>
+              </div>
+              <div class="person-overview">
+                <b>Biography</b>
+                <p class="person-summary">{{person.biography}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <app-shortcut-nav></app-shortcut-nav>
+    <div class="person-content">
+      <div class="grey-col">
+        <div class="grey-width">
+          <h2 class="detail-item">Personal Info</h2>
+          <ul class="detail-item">
+            <li class="item-d"><b>Known For</b></li>
+            <li class="item-d">{{person?.known_for_department}}</li>
+          </ul>
+          <ul class="detail-item">
+            <li class="item-d"><b>Gender</b></li>
+            <li class="item-d">{{gender[person?.gender]}}</li>
+          </ul>
+          <ul class="detail-item">
+            <li class="item-d"><b>Known Credits</b></li>
+            <li class="item-d"> - </li>
+          </ul>
+          <ul class="detail-item">
+            <li class="item-d"><b>Birthday</b></li>
+            <li class="item-d">{{person?.birthday}}</li>
+          </ul>
+          <ul class="detail-item">
+            <li class="item-d"><b>Place of Birth</b></li>
+            <li class="item-d">{{person?.place_of_birth}}</li>
+          </ul>
+          <ul class="detail-item">
+            <li class="item-d"><b>Official Site</b></li>
+            <li class="item-d"> {{person?.homepage}}</li>
+          </ul>
+          <ul class="detail-item">
+            <li class="item-d"><b>Also Known As</b></li>
+            <li *ngFor="let known_as of person?.also_known_as" class="item-d">{{known_as}}</li>
+          </ul>
+        </div>
+        <div class="clear-both"></div>
+      </div>
+      <div class="white-col">
+        <div class="white-width">
+          <div class="container">
+            <div *ngIf="credit" class="movie-list">
+              <h3>Known For</h3>
+              <div *ngFor="let cre of credit.cast | slice:0:6" class="movie-person-card">
+                <a routerLink="/detail/{{cre.id}}">
+                  <img class="image-fluid avartar" src="https://image.tmdb.org/t/p/w150_and_h225_bestv2{{cre.poster_path}}" alt="">
+                  <p class="movie-name-person">{{cre.title}}</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="clear-both"></div>
+    </div>
+  </div>
+</main>
