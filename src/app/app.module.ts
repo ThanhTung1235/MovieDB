@@ -13,6 +13,12 @@ import { PersonDetailComponent } from './person-detail/person-detail.component';
 import { PersonPopularComponent } from './person-popular/person-popular.component';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { SearchBoxComponent } from './search-box/search-box.component';
+import {FormsModule} from '@angular/forms';
+import { SearchDetailsComponent } from './search-details/search-details.component';
+import { TvSearchComponent } from './tv-search/tv-search.component';
+import { PeopleSearchComponent } from './people-search/people-search.component';
+import { CollectionSearchComponent } from './collection-search/collection-search.component';
+import { MovieSearchComponent } from './movie-search/movie-search.component';
 
 @NgModule({
   declarations: [
@@ -25,13 +31,19 @@ import { SearchBoxComponent } from './search-box/search-box.component';
     ShortcutNavComponent,
     PersonDetailComponent,
     PersonPopularComponent,
-    SearchBoxComponent
+    SearchBoxComponent,
+    SearchDetailsComponent,
+    TvSearchComponent,
+    PeopleSearchComponent,
+    CollectionSearchComponent,
+    MovieSearchComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -5,6 +5,11 @@ import {PopularComponent} from '../app/popular/popular.component';
 import {MovieDetailsComponent} from '../app/movie-details/movie-details.component';
 import {PersonPopularComponent} from './person-popular/person-popular.component';
 import {PersonDetailComponent} from './person-detail/person-detail.component';
+import {SearchDetailsComponent} from './search-details/search-details.component';
+import {CollectionSearchComponent} from './collection-search/collection-search.component';
+import {TvSearchComponent} from './tv-search/tv-search.component';
+import {PeopleSearchComponent} from './people-search/people-search.component';
+import {MovieSearchComponent} from './movie-search/movie-search.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'popular', pathMatch: 'full'},
@@ -12,7 +17,16 @@ const routes: Routes = [
   {path: 'popular/:page', component: PopularComponent},
   {path: 'detail/:id', component: MovieDetailsComponent},
   {path: 'person', component: PersonPopularComponent},
-  {path: 'person/:id', component: PersonDetailComponent}
+  {path: 'person/:id', component: PersonDetailComponent},
+  {
+    path: 'search', component: SearchDetailsComponent, children: [
+      {path: '', redirectTo: 'movie', pathMatch: 'full'},
+      {path: 'movie', component: MovieSearchComponent},
+      {path: 'collection', component: CollectionSearchComponent},
+      {path: 'tv', component: TvSearchComponent},
+      {path: 'people', component: PeopleSearchComponent}
+    ]
+  },
 ];
 
 @NgModule({
@@ -25,3 +39,4 @@ const routes: Routes = [
 })
 export class AppRoutingModule {
 }
+

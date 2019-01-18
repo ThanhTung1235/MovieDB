@@ -1,0 +1,11 @@
+<h2>Search <i class="fas fa-angle-right"></i> People Results</h2>
+<div *ngFor="let person of searchPerson?.results" class="people-card">
+  <div class="image-people">
+    <img class="img-fluid" src="https://image.tmdb.org/t/p/w90_and_h90_face/{{person?.profile_path}}" alt="">
+  </div>
+  <div class="people-info">
+    <h2 class="people-name">
+      <a routerLink="/person/{{person.id}}">{{person.name}}</a>
+  </h2>
+    <p>Acting - Mama June:From Ha Dong with love</p></div>
+</div>
