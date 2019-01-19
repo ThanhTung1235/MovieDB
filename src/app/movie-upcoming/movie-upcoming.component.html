@@ -1,7 +1,7 @@
 <main>
   <div class="movie-popular">
     <div class="container">
-      <h2>Popular Movies</h2>
+      <h2>Upcoming Movies</h2>
       <div *ngIf="_popular" class="movie-page">
         <div class="movie-card" *ngFor="let movie of _popular.results"
              title="{{movie.title}}">
@@ -23,7 +23,7 @@
           </div>
         </div>
         <div class="movie-card-sm"
-              *ngFor="let movies of _popular.results">
+             *ngFor="let movies of _popular.results">
           <a routerLink="/detail/{{movies.id}}" title="{{movies.title}}">
             <div class="movie-thumbnail-sm">
               <img class="image-fluid" src="https://image.tmdb.org/t/p/w1000_and_h563_face{{movies.backdrop_path}}"
@@ -47,4 +47,3 @@
     </div>
   </div>
 </main>
-

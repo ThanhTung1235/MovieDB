@@ -10,10 +10,16 @@ import {CollectionSearchComponent} from './collection-search/collection-search.c
 import {TvSearchComponent} from './tv-search/tv-search.component';
 import {PeopleSearchComponent} from './people-search/people-search.component';
 import {MovieSearchComponent} from './movie-search/movie-search.component';
+import {MovieTopRateComponent} from './movie-top-rate/movie-top-rate.component';
+import {MovieUpcomingComponent} from './movie-upcoming/movie-upcoming.component';
+import {MovieNowPlayingComponent} from './movie-now-playing/movie-now-playing.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'popular', pathMatch: 'full'},
   {path: 'popular', component: PopularComponent},
+  {path: 'top-rated', component: MovieTopRateComponent},
+  {path: 'upcoming', component: MovieUpcomingComponent},
+  {path: 'now-playing', component: MovieNowPlayingComponent},
   {path: 'popular/:page', component: PopularComponent},
   {path: 'detail/:id', component: MovieDetailsComponent},
   {path: 'person', component: PersonPopularComponent},

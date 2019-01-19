@@ -39,7 +39,7 @@ export class MovieDetailsComponent implements OnInit {
   constructor(
     private detailService: MovieDetailsService,
     private activatedRoute: ActivatedRoute,
-    private route: Router
+    private route: Router,
   ) {
   }
 
@@ -81,5 +81,7 @@ export class MovieDetailsComponent implements OnInit {
     this.detailService.getKeyWord(id).subscribe(k => this.key = k);
   }
 
-
+  openVerticallyCentered(content) {
+    this.modalService.open(content, {centered: true});
+  }
 }

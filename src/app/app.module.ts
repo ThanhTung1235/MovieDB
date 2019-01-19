@@ -19,6 +19,9 @@ import { TvSearchComponent } from './tv-search/tv-search.component';
 import { PeopleSearchComponent } from './people-search/people-search.component';
 import { CollectionSearchComponent } from './collection-search/collection-search.component';
 import { MovieSearchComponent } from './movie-search/movie-search.component';
+import { MovieTopRateComponent } from './movie-top-rate/movie-top-rate.component';
+import { MovieUpcomingComponent } from './movie-upcoming/movie-upcoming.component';
+import { MovieNowPlayingComponent } from './movie-now-playing/movie-now-playing.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +40,9 @@ import { MovieSearchComponent } from './movie-search/movie-search.component';
     PeopleSearchComponent,
     CollectionSearchComponent,
     MovieSearchComponent,
+    MovieTopRateComponent,
+    MovieUpcomingComponent,
+    MovieNowPlayingComponent,
   ],
   imports: [
     BrowserModule,
