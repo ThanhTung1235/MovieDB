@@ -28,6 +28,7 @@ import { TvDetailsComponent } from './tv-details/tv-details.component';
 import { TvOnTVComponent } from './tv-on-tv/tv-on-tv.component';
 import { TvAiringComponent } from './tv-airing/tv-airing.component';
 import { TvTopRateComponent } from './tv-top-rate/tv-top-rate.component';
+import { NavWrapperComponent } from './nav-wrapper/nav-wrapper.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { TvTopRateComponent } from './tv-top-rate/tv-top-rate.component';
     TvOnTVComponent,
     TvAiringComponent,
     TvTopRateComponent,
+    NavWrapperComponent,
   ],
   imports: [
     BrowserModule,

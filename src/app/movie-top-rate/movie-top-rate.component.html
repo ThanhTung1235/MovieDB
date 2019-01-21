@@ -1,12 +1,13 @@
 <main>
   <div class="movie-popular">
     <div class="container">
-      <h2>Top Rated Movies</h2>
+      <h2>Popular Movies</h2>
       <div *ngIf="_popular" class="movie-page">
         <div class="movie-card" *ngFor="let movie of _popular.results"
              title="{{movie.title}}">
           <div class="movie-thumbnail">
             <img class="image-fluid" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2{{movie.poster_path}}" alt="">
+            <img *ngIf="movie.poster_path == null" class="image-fluid" src="../../assets/nullMoive.png" alt="">
             <div class="sub">
               <i class="fas fa-chart-line"></i>
             </div>
@@ -47,3 +48,4 @@
     </div>
   </div>
 </main>
+

@@ -3,6 +3,7 @@
   <div class="movie-thumbnail">
     <img class="image-fluid"
          src="https://image.tmdb.org/t/p/w185_and_h278_bestv2/{{tv.poster_path}}" alt="">
+    <img *ngIf="tv.backdrop_path == null" class="image-fluid" src="../../assets/nullMoive.png" alt="">
     <div class="sub">
       <i class="fas fa-chart-line"></i>
     </div>
@@ -23,6 +24,7 @@
     <div class="movie-thumbnail-sm">
       <img class="image-fluid"
            src="https://image.tmdb.org/t/p/w1000_and_h563_face/{{tv.backdrop_path}}" alt="">
+      <img *ngIf="tv.backdrop_path == null" class="image-fluid" src="../../assets/null.png" alt="">
     </div>
     <div class="card-content-sm">
       <div class="fake-percent">

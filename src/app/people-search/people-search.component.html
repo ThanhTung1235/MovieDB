@@ -1,7 +1,9 @@
 <h2>Search <i class="fas fa-angle-right"></i> People Results</h2>
 <div *ngFor="let person of searchPerson?.results" class="people-card">
   <div class="image-people">
-    <img class="img-fluid" src="https://image.tmdb.org/t/p/w90_and_h90_face/{{person?.profile_path}}" alt="">
+    <img *ngIf="person.profile_path != null" class="img-fluid" src="https://image.tmdb.org/t/p/w90_and_h90_face/{{person.profile_path}}" alt="">
+      <img width="90" *ngIf="person.profile_path == null" src="../../assets/Noavatar.jpg" alt="">
+
   </div>
   <div class="people-info">
     <h2 class="people-name">

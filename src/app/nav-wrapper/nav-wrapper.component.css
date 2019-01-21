@@ -1,0 +1,27 @@
+.wrapper{
+  background: #ffffff;
+  border-top: 1px solid #D7D7D7;
+  border-bottom: 1px solid #D7D7D7;
+  height: 50px;
+  padding: 14px 0;
+  overflow: hidden;
+}
+
+.wrapper-item{
+  margin-right: 80px;
+  display: inline-block;
+  padding-bottom: 20px;
+}
+.wrapper-ls{
+  overflow: auto;
+  white-space: nowrap;
+}
+.wrapper-item:last-child{
+  margin-right: 0;
+}
+.wrapper-item a{
+  text-decoration: none;
+  color: #081c24;
+  font-size: 15px;
+  font-weight: 600;
+}

@@ -41,10 +41,10 @@ export class TvService {
     }));
   }
 
-  getAiringToday(page: number): Observable<Tv> {
+  getAiringToday(page: number): Observable<TvResponse> {
     const url = `https://api.themoviedb.org/3/tv/airing_today?api_key=${this.apiKey}&language=en-US&${page}`;
-    return this.httpClient.get<Tv>(url).pipe(map(tv_response => {
-      return tv_response as Tv;
+    return this.httpClient.get<TvResponse>(url).pipe(map(tv_response => {
+      return tv_response as TvResponse;
     }));
   }
 

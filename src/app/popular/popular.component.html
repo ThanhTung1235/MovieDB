@@ -7,6 +7,7 @@
              title="{{movie.title}}">
           <div class="movie-thumbnail">
             <img class="image-fluid" src="https://image.tmdb.org/t/p/w185_and_h278_bestv2{{movie.poster_path}}" alt="">
+            <img *ngIf="movie.poster_path == null" class="image-fluid" src="../../assets/nullMoive.png" alt="">
             <div class="sub">
               <i class="fas fa-chart-line"></i>
             </div>
