@@ -13,9 +13,16 @@ import {MovieSearchComponent} from './movie-search/movie-search.component';
 import {MovieTopRateComponent} from './movie-top-rate/movie-top-rate.component';
 import {MovieUpcomingComponent} from './movie-upcoming/movie-upcoming.component';
 import {MovieNowPlayingComponent} from './movie-now-playing/movie-now-playing.component';
+import {HomePageComponent} from './home-page/home-page.component';
+import {TvPopularComponent} from './tv-popular/tv-popular.component';
+import {TvDetailsComponent} from './tv-details/tv-details.component';
+import {TvOnTVComponent} from './tv-on-tv/tv-on-tv.component';
+import {TvAiringComponent} from './tv-airing/tv-airing.component';
+import {TvTopRateComponent} from './tv-top-rate/tv-top-rate.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'popular', pathMatch: 'full'},
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: 'home', component: HomePageComponent},
   {path: 'popular', component: PopularComponent},
   {path: 'top-rated', component: MovieTopRateComponent},
   {path: 'upcoming', component: MovieUpcomingComponent},
@@ -33,6 +40,12 @@ const routes: Routes = [
       {path: 'people', component: PeopleSearchComponent}
     ]
   },
+  {path: 'tv/popular', component: TvPopularComponent},
+  {path: 'tv/on-tv', component: TvOnTVComponent},
+  {path: 'tv/airing-today', component: TvAiringComponent},
+  {path: 'tv/top', component: TvTopRateComponent},
+  {path: 'tv/:id', component: TvDetailsComponent},
+
 ];
 
 @NgModule({

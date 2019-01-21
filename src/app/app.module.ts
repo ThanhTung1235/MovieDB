@@ -22,6 +22,12 @@ import { MovieSearchComponent } from './movie-search/movie-search.component';
 import { MovieTopRateComponent } from './movie-top-rate/movie-top-rate.component';
 import { MovieUpcomingComponent } from './movie-upcoming/movie-upcoming.component';
 import { MovieNowPlayingComponent } from './movie-now-playing/movie-now-playing.component';
+import { HomePageComponent } from './home-page/home-page.component';
+import { TvPopularComponent } from './tv-popular/tv-popular.component';
+import { TvDetailsComponent } from './tv-details/tv-details.component';
+import { TvOnTVComponent } from './tv-on-tv/tv-on-tv.component';
+import { TvAiringComponent } from './tv-airing/tv-airing.component';
+import { TvTopRateComponent } from './tv-top-rate/tv-top-rate.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +49,12 @@ import { MovieNowPlayingComponent } from './movie-now-playing/movie-now-playing.
     MovieTopRateComponent,
     MovieUpcomingComponent,
     MovieNowPlayingComponent,
+    HomePageComponent,
+    TvPopularComponent,
+    TvDetailsComponent,
+    TvOnTVComponent,
+    TvAiringComponent,
+    TvTopRateComponent,
   ],
   imports: [
     BrowserModule,

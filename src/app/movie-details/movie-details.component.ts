@@ -80,8 +80,4 @@ export class MovieDetailsComponent implements OnInit {
   getKeyWord(id: number): void {
     this.detailService.getKeyWord(id).subscribe(k => this.key = k);
   }
-
-  openVerticallyCentered(content) {
-    this.modalService.open(content, {centered: true});
-  }
 }

@@ -1,3 +1,5 @@
+import {Genres} from './genres';
+
 export class Tv {
   id: number;
   name: string;
@@ -7,4 +9,8 @@ export class Tv {
   backdrop_path: string;
   first_air_date: string;
   homepage: string;
+  vote_average: string;
+  status: string;
+  original_language: string;
+  genres: Genres[];
 }

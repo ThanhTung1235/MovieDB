@@ -1,19 +1,18 @@
 <main>
-  <div class="detail-page" *ngIf="movie">
-
-    <div class="banner" [ngStyle]="{'background-image': 'url('+ urlImage + movie.backdrop_path + ')'}"></div>
+  <div class="detail-page" *ngIf="tv">
+    <div class="banner" [ngStyle]="{'background-image': 'url('+ urlImage + tv?.backdrop_path + ')'}"></div>
     <div class="detail-header">
       <div class="container">
         <div class="row intro">
           <div class="col-4">
             <div class="thumbnail-movie-dt">
-              <img class="image-fluid" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{movie.poster_path}}"
+              <img class="image-fluid" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{tv.poster_path}}"
                    alt="">
             </div>
           </div>
           <div class="col-8">
             <div>
-              <h1>{{movie.title}}</h1>
+              <h1>{{tv.name}}</h1>
               <ul class="nav media-dt">
                 <li class="nav-item">
                   <img class="image-fluid" src="../../assets/Capture.png" alt="">
@@ -44,7 +43,7 @@
             <div class="overview-dt">
               <h3 class="title-section">Overview</h3>
               <p>
-                {{movie.overview}}
+                {{tv.overview}}
               </p>
             </div>
             <div class="fearture-dt">
@@ -64,13 +63,13 @@
     </div>
     <div class="detail-header-mb">
       <div class="banner-mb">
-        <img class="image-fluid" src="https://image.tmdb.org/t/p/w1400_and_h450_face{{movie.backdrop_path}}" alt="">
-        <img class="image-fluid poster" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{movie.poster_path}}"
+        <img class="image-fluid" src="https://image.tmdb.org/t/p/w1400_and_h450_face{{tv.backdrop_path}}" alt="">
+        <img class="image-fluid poster" src="https://image.tmdb.org/t/p/w300_and_h450_bestv2{{tv.poster_path}}"
              alt="">
       </div>
       <div class="title-dt-mb">
         <div class="container">
-          <h1 class="movie-dt-name">{{movie.title}}</h1>
+          <h1 class="movie-dt-name">{{tv.original_name}}</h1>
           <div class="media-dt-mb">
             <a href="#" class="percent-mb">
               <div class="percent-fake">
@@ -93,7 +92,7 @@
           <div class="overview-dt">
             <h3 class="title-section">Overview</h3>
             <p>
-              {{movie.overview}}
+              {{tv.overview}}
             </p>
           </div>
           <div class="fearture-dt">
@@ -118,8 +117,8 @@
           <div class="pd-1">
             <h2>Top Billed Cast</h2>
             <div class="hide-scroll">
-              <div *ngIf="credits" class="cast-list">
-                <div *ngFor="let cast of credits.cast | slice:0:5" class="cast-card">
+              <div *ngIf="_cast" class="cast-list">
+                <div *ngFor="let cast of _cast.cast | slice:0:5" class="cast-card">
                   <a routerLink="/person/{{cast.id}}">
                     <div class="avatar-cast">
                       <img class="image-fluid" src="https://image.tmdb.org/t/p/w276_and_h350_face{{cast.profile_path}}"
@@ -138,8 +137,8 @@
               </div>
             </div>
             <h2>Videos</h2>
-            <div *ngIf="videos" class="video-trailer">
-              <div *ngFor="let trailer of videos.results" class="trailer-item">
+            <div *ngIf="_video" class="video-trailer">
+              <div *ngFor="let trailer of _video?.results" class="trailer-item">
                 <iframe width="560" height="315" [src]="youtubeUrl + trailer.key |safe" frameborder="0"
                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
@@ -148,34 +147,21 @@
           </div>
         </div>
         <div class="clear-both"></div>
-        <div *ngIf="movie?.belongs_to_collection" class="collection">
-          <div class="thumbnail-collection"
-               [ngStyle]="{'backgroundImage': 'url('+ imgCollection + movie.belongs_to_collection.backdrop_path + ')'}"></div>
-          <div class="panel">
-            <div class="white-width">
-              <div class="pd-1">
-                <h2 class="title-collection">{{movie.belongs_to_collection.name}}</h2>
-                <p class="info-collection">Includes Mission: Impossible, Mission: Impossible II, Mission: Impossible
-                  III</p><a href="#" class="btn-collection">view the collection</a>
-              </div>
-            </div>
-          </div>
-        </div>
         <div class="white-width">
           <div class="recommend-area">
             <h2>Recommendation</h2>
-            <div *ngIf="recommend" class="recommendation">
-              <div *ngFor="let red of recommend.results" class="recommen-card">
-                <a routerLink="/detail/{{red.id}}">
+            <div  class="recommendation">
+              <div *ngFor="let red of _tvRes?.results" class="recommen-card">
+                <a routerLink="/tv/{{red.id}}">
                   <div class="thumbnail-recommen">
                     <img class="image-fluid image-radius"
                          src="https://image.tmdb.org/t/p/w250_and_h141_face{{red.backdrop_path}}" alt="">
                     <div class="sub-recommen">
-                      <i class="fas fa-table"></i> {{red.release_date}}
+                      <i class="fas fa-table"></i> {{red.first_air_date}}
                     </div>
                   </div>
                   <div class="recommen-name">
-                    <p>{{red.title}}</p>
+                    <p>{{red.name}}</p>
                     <p>{{red.vote_average}}<i class="fas fa-star"></i></p>
                   </div>
                 </a>
@@ -194,28 +180,22 @@
             </div>
             <a href="#" class="social-link"><i class="fas fa-link fa-2x"></i></a>
           </div>
-          <div *ngIf="movie" id="movie_about" class="movie_about">
+          <div *ngIf="tv" id="movie_about" class="movie_about">
             <p class="title-feature">Facts</p>
             <p class="title-feature">Status</p>
-            <p class="item-feature">{{movie.status}}</p>
+            <p class="item-feature">{{tv.status}}</p>
             <p class="title-feature">Released Infomation</p>
-            <p class="item-feature">{{movie.release_date}}</p>
+            <p class="item-feature">{{tv.first_air_date}}</p>
             <p class="title-feature">Original Language</p>
-            <p class="item-feature">{{movie.original_language | uppercase}}</p>
-            <p class="title-feature">Runtime</p>
-            <p class="item-feature">{{movie.runtime}} minutes</p>
-            <p class="title-feature">Budget</p>
-            <p class="item-feature">${{movie.budget}}</p>
-            <p class="title-feature">Revenue</p>
-            <p class="item-feature">${{movie.revenue}}</p>
+            <p class="item-feature">{{tv.original_language | uppercase}}</p>
             <p class="title-feature">Genres</p>
-            <div *ngIf="movie.genres">
-              <a *ngFor="let genres of movie.genres" href="#" class="genres-item">{{genres.name}}</a>
+            <div *ngIf="tv.genres">
+              <a *ngFor="let genres of tv.genres" href="#" class="genres-item">{{genres.name}}</a>
             </div>
             <p class="title-feature">KeyWord</p>
           </div>
-          <div *ngIf="key" class="genres">
-            <a *ngFor="let keyword of key.keywords" href="#" class="genres-item keyword-item">{{keyword.name}}</a>
+          <div class="genres">
+            <a *ngFor="let keyword of _key?.results" href="#" class="genres-item keyword-item">{{keyword.name}}</a>
           </div>
         </div>
       </div>
