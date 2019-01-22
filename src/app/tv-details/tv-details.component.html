@@ -32,11 +32,11 @@
                     <i style="padding-left: 15px" class="fas fa-bookmark"></i>
                   </a>
                 </li>
-                <li class="nav-item" style="margin-top:12px">
-                  <a class="trailer" href="#">
-                    <i class="fas fa-play"></i>
-                    play trailer
-                  </a>
+                <li *ngFor="let trailer of _video?.results | slice:0:1" class="nav-item" style="margin-top:12px">
+                    <a class="trailer" data-fancybox="tv-trailer" [href]="youtubeUrl + trailer.key">
+                      <i class="fas fa-play"></i>
+                      play trailer
+                    </a>
                 </li>
               </ul>
             </div>
@@ -78,11 +78,11 @@
               <p class="User-Score">User Score</p>
             </a>
             <div class="border"></div>
-            <div class="trailer-mb">
-              <a href="#">
-                <i class="fas fa-play"></i>
-                Play Trailer
-              </a>
+            <div *ngFor="let trailer of _video?.results | slice:0:1" class="trailer-mb">
+                <a class="trailer" data-fancybox="tv-trailer-mb" [href]="youtubeUrl + trailer.key">
+                  <i class="fas fa-play"></i>
+                  play trailer
+                </a>
             </div>
           </div>
         </div>
