@@ -4,13 +4,16 @@
   border-bottom: 1px solid #D7D7D7;
   height: 50px;
   padding: 14px 0;
+  position: relative;
+}
+.hide{
+  height: 50px;
   overflow: hidden;
 }
-
 .wrapper-item{
   margin-right: 80px;
   display: inline-block;
-  padding-bottom: 20px;
+  padding-bottom: 35px;
 }
 .wrapper-ls{
   overflow: auto;
@@ -24,4 +27,24 @@
   color: #081c24;
   font-size: 15px;
   font-weight: 600;
+}
+.drop-down{
+  position: absolute;
+  background: #ffffff;
+  display: none;
+  top: 50px;
+}
+
+.discussion:hover .drop-down{
+  display: block;
+}
+.drop-link{
+  display: block;
+  color: #00d573;
+  text-decoration: none;
+  font-weight: 200;
+  padding: 15px 30px;
+  border-right: 1px solid #A6A8B0;
+  border-left: 1px solid #A6A8B0;
+  border-bottom: 1px solid #A6A8B0;
 }
