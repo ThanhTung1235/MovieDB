@@ -218,8 +218,8 @@
             </div>
             <p class="title-feature">KeyWord</p>
           </div>
-          <div *ngIf="key" class="genres">
-            <a *ngFor="let keyword of key.results" href="#" class="genres-item keyword-item">{{keyword.name}}</a>
+          <div class="genres">
+            <a *ngFor="let keyword of key?.keywords" href="#" class="genres-item keyword-item">{{keyword.name}}</a>
           </div>
         </div>
       </div>

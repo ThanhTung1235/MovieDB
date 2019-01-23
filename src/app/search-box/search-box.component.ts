@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {SearchService} from '../search.service';
 import {Search} from '../search';
-import {isLineBreak} from 'codelyzer/angular/sourceMappingVisitor';
 import {Router} from '@angular/router';
 
 @Component({
